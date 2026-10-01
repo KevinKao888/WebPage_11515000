@@ -1,0 +1,2582 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="綠天咖啡 Green Sky Coffee ｜ 專注高海拔莊園手沖精品咖啡，秉持自然、清新、質感的風土美學，為重視咖啡品質的您呈現純淨風味。">
+  <title>綠天咖啡 Green Sky Coffee ｜ 自然・清新・手沖精品咖啡</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       顏色變數與系統設定 (自然、清新、質感：深綠、米白、淺棕)
+       ========================================================================== */
+    :root {
+      /* 品牌主色調 */
+      --color-green-dark: #1b382b;       /* 沉靜深綠 */
+      --color-green-primary: #284e3a;    /* 經典深林綠 */
+      --color-green-medium: #3c6d53;     /* 晨曦翠綠 */
+      --color-green-light: #528b6d;      /* 清新淡綠 */
+      --color-green-subtle: #eef4f0;     /* 霧森極淡綠 */
+
+      --color-beige-bg: #f9f7f2;         /* 溫潤米白底色 */
+      --color-beige-card: #ffffff;       /* 卡片純淨白 */
+      --color-beige-soft: #f2ede4;       /* 淺米白表面 */
+      --color-beige-border: #e6dfd3;     /* 溫和米褐邊框 */
+
+      --color-brown-primary: #b08253;    /* 經典淺棕/焦糖棕 */
+      --color-brown-hover: #966b40;      /* 醇厚淺棕 */
+      --color-brown-light: #dfcaa7;      /* 柔和淺棕 */
+      --color-brown-subtle: #f7f3ec;     /* 淡棕底蘊 */
+
+      --text-main: #1d2621;              /* 深度自然黑炭色 */
+      --text-muted: #5e6b63;             /* 次要文字綠褐色 */
+      --text-light: #8e9a92;             /* 淡雅文字 */
+      --text-inverse: #f9f7f2;           /* 反白米白文字 */
+
+      /* 字體系列 */
+      --font-serif: "Noto Serif TC", serif;
+      --font-sans: "Noto Sans TC", sans-serif;
+      --font-display: "Cormorant Garamond", serif;
+
+      /* 陰影與圓角 */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --shadow-soft: 0 4px 20px rgba(27, 56, 43, 0.05);
+      --shadow-hover: 0 12px 36px rgba(27, 56, 43, 0.11);
+      --shadow-deep: 0 20px 48px rgba(18, 38, 29, 0.18);
+
+      --transition-base: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* 基礎重置 */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--color-beige-bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      background-image: radial-gradient(var(--color-beige-border) 0.75px, transparent 0.75px);
+      background-size: 32px 32px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section-py {
+      padding: 90px 0;
+    }
+
+    @media (max-width: 768px) {
+      .section-py {
+        padding: 60px 0;
+      }
+      .container {
+        width: calc(100% - 32px);
+      }
+    }
+
+    /* 標題與標籤樣式 */
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-brown-primary);
+      background-color: var(--color-brown-subtle);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-brown-light);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--color-green-dark);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 按鈕樣式 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: var(--transition-base);
+    }
+
+    .btn-primary {
+      background-color: var(--color-green-primary);
+      color: var(--color-beige-bg);
+      box-shadow: 0 6px 18px rgba(40, 78, 58, 0.25);
+    }
+    .btn-primary:hover {
+      background-color: var(--color-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(27, 56, 43, 0.35);
+    }
+
+    .btn-accent {
+      background-color: var(--color-brown-primary);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(176, 130, 83, 0.28);
+    }
+    .btn-accent:hover {
+      background-color: var(--color-brown-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(176, 130, 83, 0.4);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1.5px solid var(--color-green-primary);
+      color: var(--color-green-primary);
+    }
+    .btn-outline:hover {
+      background-color: var(--color-green-subtle);
+      border-color: var(--color-green-dark);
+      color: var(--color-green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background-color: #ffffff;
+      color: var(--color-green-dark);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    .btn-white:hover {
+      background-color: var(--color-beige-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ==========================================================================
+       導覽列 (Navigation)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(249, 247, 242, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-beige-border);
+      transition: var(--transition-base);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--color-green-dark), var(--color-green-medium));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-brown-light);
+      box-shadow: 0 4px 12px rgba(27, 56, 43, 0.2);
+    }
+
+    .brand-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name-zh {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-green-dark);
+      line-height: 1.1;
+    }
+
+    .brand-name-en {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-brown-primary);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-main);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-brown-primary);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover {
+      color: var(--color-green-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--color-green-dark);
+      transition: var(--transition-base);
+    }
+
+    /* 手機版選單 */
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 0;
+        right: 0;
+        background-color: var(--color-beige-bg);
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--color-beige-border);
+        box-shadow: var(--shadow-deep);
+        transform: translateY(-150%);
+        transition: transform 0.4s ease;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      .nav-toggle {
+        display: flex;
+      }
+      .nav-actions .btn-primary {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       Hero 主視覺橫幅 (自然、清新、質感)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      padding: 70px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-subtag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-green-primary);
+      background-color: var(--color-green-subtle);
+      border: 1px solid rgba(82, 139, 109, 0.25);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 22px;
+    }
+
+    .hero-subtag svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+      font-weight: 900;
+      color: var(--color-green-dark);
+      line-height: 1.22;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span.highlight {
+      color: var(--color-brown-primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 580px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px solid var(--color-beige-border);
+    }
+
+    .stat-item h4 {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--color-green-dark);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-deep);
+      background-color: var(--color-green-dark);
+      border: 4px solid #ffffff;
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-image-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background-color: #ffffff;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-hover);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid var(--color-beige-border);
+    }
+
+    .floating-icon {
+      width: 44px;
+      height: 44px;
+      background-color: var(--color-brown-subtle);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-brown-primary);
+      flex-shrink: 0;
+    }
+
+    .floating-text h5 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--color-green-dark);
+    }
+
+    .floating-text p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-visual {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .hero-image-card img {
+        height: 380px;
+      }
+    }
+
+    /* ==========================================================================
+       第一部分：品牌與咖啡介紹 (自然純粹的手沖哲學)
+       ========================================================================== */
+    .about-section {
+      background-color: #ffffff;
+      border-top: 1px solid var(--color-beige-border);
+      border-bottom: 1px solid var(--color-beige-border);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .philosophy-card {
+      background-color: var(--color-beige-bg);
+      border-radius: var(--radius-md);
+      padding: 36px 30px;
+      border: 1px solid var(--color-beige-border);
+      transition: var(--transition-base);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .philosophy-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-green-light);
+    }
+
+    .philosophy-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--color-green-subtle), #ffffff);
+      border: 1px solid rgba(82, 139, 109, 0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-green-primary);
+      margin-bottom: 24px;
+    }
+
+    .philosophy-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-green-dark);
+      margin-bottom: 12px;
+    }
+
+    .philosophy-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .philosophy-card .card-step {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--color-brown-light);
+      opacity: 0.5;
+      position: absolute;
+      top: 24px;
+      right: 28px;
+    }
+
+    @media (max-width: 850px) {
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 核心理念橫向展示區 */
+    .brand-quote-box {
+      margin-top: 60px;
+      background: linear-gradient(135deg, var(--color-green-dark), var(--color-green-primary));
+      color: var(--color-beige-bg);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--shadow-deep);
+    }
+
+    .brand-quote-text h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      line-height: 1.45;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .brand-quote-text p {
+      font-size: 1rem;
+      color: var(--color-brown-light);
+      line-height: 1.8;
+    }
+
+    .brand-quote-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .quote-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+    }
+
+    .quote-pill svg {
+      color: var(--color-brown-primary);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .brand-quote-box {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+      }
+    }
+
+    /* ==========================================================================
+       第二部分：咖啡豆產地巡禮 (強調咖啡豆產地 Terroir)
+       ========================================================================== */
+    .origin-section {
+      background-color: var(--color-beige-bg);
+    }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .origin-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-beige-border);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .origin-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-brown-primary);
+    }
+
+    .origin-header {
+      background: linear-gradient(135deg, var(--color-green-dark), #264a37);
+      color: #ffffff;
+      padding: 24px 22px;
+      position: relative;
+    }
+
+    .origin-flag-badge {
+      display: inline-block;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background-color: rgba(255, 255, 255, 0.16);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 8px;
+      color: var(--color-brown-light);
+    }
+
+    .origin-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .origin-subname {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.05em;
+    }
+
+    .origin-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .origin-meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      border-bottom: 1px dashed var(--color-beige-border);
+      padding-bottom: 6px;
+    }
+
+    .meta-label {
+      color: var(--text-light);
+    }
+
+    .meta-value {
+      font-weight: 600;
+      color: var(--color-green-dark);
+    }
+
+    .flavor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .flavor-tag {
+      font-size: 0.78rem;
+      background-color: var(--color-brown-subtle);
+      color: var(--color-brown-primary);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      border: 1px solid rgba(176, 130, 83, 0.2);
+    }
+
+    .origin-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       第三部分：職人手沖特色指南 (強調沖泡特色 Brewing Characteristics)
+       ========================================================================== */
+    .brewing-section {
+      background-color: #ffffff;
+      border-top: 1px solid var(--color-beige-border);
+      border-bottom: 1px solid var(--color-beige-border);
+    }
+
+    .brewing-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .brew-step-card {
+      background-color: var(--color-beige-bg);
+      border-radius: var(--radius-md);
+      padding: 26px 20px;
+      border: 1px solid var(--color-beige-border);
+      position: relative;
+      transition: var(--transition-base);
+    }
+
+    .brew-step-card:hover {
+      border-color: var(--color-green-medium);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--color-green-primary);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .brew-step-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--color-green-dark);
+      margin-bottom: 8px;
+    }
+
+    .step-metric {
+      font-size: 0.82rem;
+      color: var(--color-brown-primary);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .brew-step-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 992px) {
+      .brewing-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 560px) {
+      .brewing-steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 互動手沖水粉比計算小工具 */
+    .calculator-box {
+      background: linear-gradient(135deg, #f7f5ed, #ede8dc);
+      border: 1px solid var(--color-beige-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .calc-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .calc-icon {
+      width: 48px;
+      height: 48px;
+      background-color: var(--color-green-primary);
+      color: #ffffff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .calc-title h3 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--color-green-dark);
+      font-weight: 700;
+    }
+
+    .calc-title p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .calc-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--color-green-dark);
+      margin-bottom: 8px;
+    }
+
+    .input-range-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .input-range-wrap input[type="range"] {
+      flex-grow: 1;
+      accent-color: var(--color-green-primary);
+      height: 6px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .range-val {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-green-dark);
+      min-width: 55px;
+      text-align: right;
+    }
+
+    .select-roast {
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-beige-border);
+      background-color: #ffffff;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      outline: none;
+    }
+    .select-roast:focus {
+      border-color: var(--color-green-primary);
+    }
+
+    .calc-results {
+      background-color: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--color-beige-border);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .result-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .result-data {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--color-green-dark);
+      line-height: 1.1;
+    }
+
+    .result-unit {
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      color: var(--color-brown-primary);
+      margin-left: 4px;
+    }
+
+    .result-tip {
+      grid-column: 1 / -1;
+      background-color: var(--color-green-subtle);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: var(--color-green-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 820px) {
+      .calc-controls {
+        grid-template-columns: 1fr;
+      }
+      .calculator-box {
+        padding: 24px;
+      }
+    }
+
+    /* ==========================================================================
+       第四部分：精選產品展示 (Product Display)
+       ========================================================================== */
+    .products-section {
+      background-color: var(--color-beige-bg);
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .tab-btn {
+      padding: 9px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background-color: #ffffff;
+      border: 1px solid var(--color-beige-border);
+      transition: var(--transition-base);
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background-color: var(--color-green-primary);
+      color: #ffffff;
+      border-color: var(--color-green-primary);
+      box-shadow: 0 4px 14px rgba(40, 78, 58, 0.2);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-beige-border);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-brown-primary);
+    }
+
+    .product-thumb {
+      position: relative;
+      height: 220px;
+      background: linear-gradient(135deg, #ece7dd, #ded7c9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-thumb svg {
+      width: 80px;
+      height: 80px;
+      color: var(--color-green-primary);
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-thumb svg {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .product-roast-pill {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      color: var(--color-brown-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .product-score {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background-color: var(--color-green-dark);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .product-info {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-origin-tag {
+      font-size: 0.8rem;
+      color: var(--color-brown-primary);
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .product-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-green-dark);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .product-notes {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-beige-border);
+    }
+
+    .product-price {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-green-dark);
+    }
+
+    .product-price small {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: normal;
+      color: var(--text-light);
+      margin-left: 2px;
+    }
+
+    .btn-buy {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: var(--color-brown-primary);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-base);
+    }
+
+    .btn-buy:hover {
+      background-color: var(--color-brown-hover);
+      transform: scale(1.1);
+    }
+
+    /* ==========================================================================
+       第五部分：實體門市資訊 (Store Information)
+       ========================================================================== */
+    .stores-section {
+      background-color: #ffffff;
+      border-top: 1px solid var(--color-beige-border);
+    }
+
+    .stores-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+    }
+
+    .store-card {
+      background-color: var(--color-beige-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-beige-border);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-base);
+    }
+
+    .store-card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-green-light);
+      transform: translateY(-4px);
+    }
+
+    .store-image-box {
+      height: 240px;
+      background-color: var(--color-green-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .store-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .store-card:hover .store-image-box img {
+      transform: scale(1.05);
+    }
+
+    .store-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background-color: rgba(27, 56, 43, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--color-beige-bg);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .store-details {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-grow: 1;
+    }
+
+    .store-name {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--color-green-dark);
+    }
+
+    .store-tagline {
+      font-size: 0.9rem;
+      color: var(--color-brown-primary);
+      font-weight: 600;
+    }
+
+    .store-info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .store-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .store-info-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-green-primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .store-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .store-feature-tag {
+      font-size: 0.78rem;
+      background-color: #ffffff;
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-beige-border);
+    }
+
+    .store-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    @media (max-width: 860px) {
+      .stores-grid {
+        grid-template-columns: 1fr;
+      }
+      .store-details {
+        padding: 24px;
+      }
+    }
+
+    /* 門市體驗預約 Banner */
+    .reservation-banner {
+      margin-top: 60px;
+      background-color: var(--color-green-subtle);
+      border: 1.5px dashed var(--color-green-light);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .res-text h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-green-dark);
+      margin-bottom: 4px;
+    }
+
+    .res-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       頁尾 (Footer)
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--color-green-dark);
+      color: var(--color-beige-bg);
+      padding: 70px 0 30px;
+      border-top: 4px solid var(--color-brown-primary);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand .brand-name-zh {
+      color: #ffffff;
+    }
+
+    .footer-brand .brand-name-en {
+      color: var(--color-brown-light);
+    }
+
+    .footer-about {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: rgba(249, 247, 242, 0.72);
+      line-height: 1.8;
+      max-width: 320px;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(249, 247, 242, 0.72);
+      font-size: 0.88rem;
+    }
+    .footer-links a:hover {
+      color: var(--color-brown-light);
+      padding-left: 4px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .newsletter-input-wrap {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      padding: 4px;
+    }
+
+    .newsletter-input-wrap input {
+      border: none;
+      background: transparent;
+      padding: 8px 16px;
+      color: #ffffff;
+      font-size: 0.88rem;
+      outline: none;
+      width: 100%;
+    }
+
+    .newsletter-input-wrap input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .newsletter-input-wrap button {
+      background-color: var(--color-brown-primary);
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .newsletter-input-wrap button:hover {
+      background-color: var(--color-brown-hover);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: rgba(249, 247, 242, 0.6);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-link {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+      transition: var(--transition-base);
+    }
+    .social-link:hover {
+      background-color: var(--color-brown-primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+    @media (max-width: 580px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       Modal 沖煮沖泡細節彈窗
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(18, 38, 29, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-window {
+      background-color: var(--color-beige-bg);
+      width: min(650px, 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      position: relative;
+      box-shadow: var(--shadow-deep);
+      border: 1px solid var(--color-beige-border);
+      transform: scale(0.92);
+      transition: transform 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.active .modal-window {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--color-beige-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      background-color: var(--color-brown-light);
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--color-green-dark);
+      color: #ffffff;
+      padding: 14px 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-deep);
+      border-left: 4px solid var(--color-brown-primary);
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      font-size: 0.92rem;
+    }
+    .toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       導覽列 Header
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-inner">
+      <a href="#" class="brand-logo" aria-label="綠天咖啡首頁">
+        <div class="brand-logo-icon">
+          <!-- 綠意葉芽與咖啡豆意象 SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12A10 10 0 0 1 12 2z"></path>
+            <path d="M12 6c-3 3-3 7 0 10"></path>
+            <path d="M12 11c2-1 4-1 5 1"></path>
+          </svg>
+        </div>
+        <div class="brand-logo-text">
+          <span class="brand-name-zh">綠天咖啡</span>
+          <span class="brand-name-en">Green Sky Coffee</span>
+        </div>
+      </a>
+
+      <!-- 導覽連結 -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">咖啡介紹</a></li>
+        <li><a href="#origin" class="nav-link">豆品產地</a></li>
+        <li><a href="#brewing" class="nav-link">手沖特色</a></li>
+        <li><a href="#products" class="nav-link">產品展示</a></li>
+        <li><a href="#stores" class="nav-link">門市資訊</a></li>
+      </ul>
+
+      <!-- 右側快速按鈕 -->
+      <div class="nav-actions">
+        <a href="#products" class="btn btn-primary">品鑑選豆</a>
+        <button class="nav-toggle" id="navToggle" aria-label="切換選單">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Hero 主視覺區 (自然、清新、質感)
+       ========================================================================== -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-subtag">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+          SCA 86+ 莊園微批次手沖專門
+        </div>
+        <h1 class="hero-title">
+          自然澄澈，<br>
+          沖煮屬於日常的<span class="highlight">純粹質感</span>。
+        </h1>
+        <p class="hero-lead">
+          綠天咖啡堅持探尋高海拔有機遮蔭莊園，敬畏每一寸風土土壤與清晨甘露。我們以精準克數、溫控水流與匠人手沖藝境，喚醒豆子深藏的花果甘醇。
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">探索當季產地豆</a>
+          <a href="#brewing" class="btn btn-outline">職人手沖參數</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>100%</h4>
+            <p>單一莊園原產履歷</p>
+          </div>
+          <div class="stat-item">
+            <h4>92°C</h4>
+            <p>黃金溫控手沖萃取</p>
+          </div>
+          <div class="stat-item">
+            <h4>48 hrs</h4>
+            <p>烘焙新鮮熟成封裝</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-card">
+          <!-- 高質感手沖情境圖片 -->
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="綠天咖啡 精緻手沖沖煮">
+        </div>
+        <div class="hero-floating-badge">
+          <div class="floating-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+          </div>
+          <div class="floating-text">
+            <h5>每日現沖單品</h5>
+            <p>慢享自然綻放的花果香氣</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       第一部分：品牌與咖啡介紹 (咖啡介紹)
+       ========================================================================== */
+  <section class="section-py about-section" id="about">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">ABOUT GREEN SKY</span>
+        <h2 class="section-title">以敬畏自然之心，成就不凡的一杯</h2>
+        <p class="section-desc mx-auto">
+          「綠天」寓意著蓊鬱綠蔭與開闊晴空。我們相信頂級的手沖咖啡，不是人工繁複的加工，而是讓大自然賦予咖啡櫻桃的原始風貌，在濾杯中清澈舒展。
+        </p>
+      </div>
+
+      <div class="philosophy-grid">
+        <!-- 理念一 -->
+        <div class="philosophy-card">
+          <span class="card-step">01</span>
+          <div class="philosophy-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>莊園風土 原生採集</h3>
+          <p>
+            我們親訪海拔 1,400 米以上的火山及高山原生林莊園。嚴選富含有機礦物質土壤與充足日夜溫差的微批次，每一粒咖啡櫻桃皆人工精細摘採全紅熟果。
+          </p>
+        </div>
+
+        <!-- 理念二 -->
+        <div class="philosophy-card">
+          <span class="card-step">02</span>
+          <div class="philosophy-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>微火慢焙 鎖住清新</h3>
+          <p>
+            捨棄掩蓋風貌的重烘焙，綠天咖啡專注於「淺焙與淺中焙度」。透過電腦精密風溫烘焙曲線，保留產地特有的明亮果酸、細緻花香與溫柔蜂蜜甘甜。
+          </p>
+        </div>
+
+        <!-- 理念三 -->
+        <div class="philosophy-card">
+          <span class="card-step">03</span>
+          <div class="philosophy-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>職人手沖 匠心定溫</h3>
+          <p>
+            手沖是一場水與豆的優雅對話。我們依據每支單品豆的密度與烘焙天數，校準精準水粉比例、水柱繞圈節奏與斷水時機，滴滴清澈回甘、餘韻繚繞。
+          </p>
+        </div>
+      </div>
+
+      <!-- 品牌核心理念框 -->
+      <div class="brand-quote-box">
+        <div class="brand-quote-text">
+          <h3>「一杯好咖啡，是一場通往高山雲霧的感官旅程。」</h3>
+          <p>
+            我們為重視生活品質與味蕾細節的您，打造純淨無雜味的單品體驗。在繁忙的步調中，留給自己 3 分鐘，靜心凝視濾滴落下的溫暖光景。
+          </p>
+        </div>
+        <div class="brand-quote-pills">
+          <div class="quote-pill">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>零農藥檢出與公平交易認證合作夥伴</span>
+          </div>
+          <div class="quote-pill">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>使用單向排氣閥環保可分解牛皮紙包裝</span>
+          </div>
+          <div class="quote-pill">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>國際 CQI Q-Grader 杯測品質鑑定把關</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       第二部分：咖啡豆產地巡禮 (強調咖啡豆產地)
+       ========================================================================== -->
+  <section class="section-py origin-section" id="origin">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">TERROIR & ORIGIN</span>
+        <h2 class="section-title">跨越赤道的微風：精選莊園產地</h2>
+        <p class="section-desc mx-auto">
+          咖啡的靈魂來自它生長的那片土地。綠天嚴選全球四個指標性特色微產區，帶您從非洲花香到中南美洲核果，品味大自然刻劃的風土印記。
+        </p>
+      </div>
+
+      <div class="origin-grid">
+        <!-- 產地 1: 衣索比亞 -->
+        <div class="origin-card">
+          <div class="origin-header">
+            <span class="origin-flag-badge">Africa / Ethiopia</span>
+            <h3 class="origin-name">衣索比亞 · 耶加雪菲</h3>
+            <p class="origin-subname">Gedeb Worka Sakaro G1</p>
+          </div>
+          <div class="origin-body">
+            <ul class="origin-meta-list">
+              <li class="meta-row"><span class="meta-label">種植海拔</span><span class="meta-value">2,050 - 2,200m</span></li>
+              <li class="meta-row"><span class="meta-label">處理方式</span><span class="meta-value">慢速日曬處理 (Natural)</span></li>
+              <li class="meta-row"><span class="meta-label">烘焙度</span><span class="meta-value">極淺焙 (Cinnamon)</span></li>
+              <li class="meta-row"><span class="meta-label">土壤類型</span><span class="meta-value">富鐵火山腐殖土</span></li>
+            </ul>
+            <div class="flavor-tags">
+              <span class="flavor-tag">白色茉莉</span>
+              <span class="flavor-tag">水蜜桃果汁</span>
+              <span class="flavor-tag">佛手柑酸香</span>
+              <span class="flavor-tag">伯爵茶感</span>
+            </div>
+            <p class="origin-desc">
+              位於高海拔沃卡產區，日夜溫差淬鍊出極高糖度，杯中散發如香水般的高雅花果清香，手沖初入口宛如品嚐現摘新鮮白桃。
+            </p>
+          </div>
+        </div>
+
+        <!-- 產地 2: 哥倫比亞 -->
+        <div class="origin-card">
+          <div class="origin-header">
+            <span class="origin-flag-badge">South America / Colombia</span>
+            <h3 class="origin-name">哥倫比亞 · 薇拉高原</h3>
+            <p class="origin-subname">Finca El Paraiso Geisha</p>
+          </div>
+          <div class="origin-body">
+            <ul class="origin-meta-list">
+              <li class="meta-row"><span class="meta-label">種植海拔</span><span class="meta-value">1,850 - 1,980m</span></li>
+              <li class="meta-row"><span class="meta-label">處理方式</span><span class="meta-value">雙重厭氧熱衝擊水洗</span></li>
+              <li class="meta-row"><span class="meta-label">烘焙度</span><span class="meta-value">淺焙 (Light)</span></li>
+              <li class="meta-row"><span class="meta-label">土壤類型</span><span class="meta-value">安地斯山脈礦物土</span></li>
+            </ul>
+            <div class="flavor-tags">
+              <span class="flavor-tag">粉紅波旁荔枝</span>
+              <span class="flavor-tag">接骨木花</span>
+              <span class="flavor-tag">紅葡萄柚</span>
+              <span class="flavor-tag">楓糖漿回甘</span>
+            </div>
+            <p class="origin-desc">
+              先進厭氧發酵工藝，將果實中豐富多層次的天然花香徹底鎖定。口感絲滑飽滿，果酸柔和清爽，冷卻後甜感更加奔放。
+            </p>
+          </div>
+        </div>
+
+        <!-- 產地 3: 瓜地馬拉 -->
+        <div class="origin-card">
+          <div class="origin-header">
+            <span class="origin-flag-badge">Central America / Guatemala</span>
+            <h3 class="origin-name">瓜地馬拉 · 安堤瓜</h3>
+            <p class="origin-subname">Santa Catalina Bourbon</p>
+          </div>
+          <div class="origin-body">
+            <ul class="origin-meta-list">
+              <li class="meta-row"><span class="meta-label">種植海拔</span><span class="meta-value">1,600 - 1,800m</span></li>
+              <li class="meta-row"><span class="meta-label">處理方式</span><span class="meta-value">高山純淨水洗 (Washed)</span></li>
+              <li class="meta-row"><span class="meta-label">烘焙度</span><span class="meta-value">淺中焙 (Medium Light)</span></li>
+              <li class="meta-row"><span class="meta-label">土壤類型</span><span class="meta-value">活火山灰沉積土壤</span></li>
+            </ul>
+            <div class="flavor-tags">
+              <span class="flavor-tag">烤榛果</span>
+              <span class="flavor-tag">黑櫻桃酸香</span>
+              <span class="flavor-tag">黑巧克力</span>
+              <span class="flavor-tag">焦糖甜感</span>
+            </div>
+            <p class="origin-desc">
+              三座火山環抱的微型氣候，土壤礦物質含量極豐。擁有細膩的黑櫻桃明亮酸甜，伴隨深邃濃郁的烤堅果與黑可可香氣。
+            </p>
+          </div>
+        </div>
+
+        <!-- 產地 4: 台灣阿里山 -->
+        <div class="origin-card">
+          <div class="origin-header">
+            <span class="origin-flag-badge">Taiwan / Alishan</span>
+            <h3 class="origin-name">台灣 · 阿里山特富野</h3>
+            <p class="origin-subname">Tefuye Micro-Lot SL34</p>
+          </div>
+          <div class="origin-body">
+            <ul class="origin-meta-list">
+              <li class="meta-row"><span class="meta-label">種植海拔</span><span class="meta-value">1,250 - 1,380m</span></li>
+              <li class="meta-row"><span class="meta-label">處理方式</span><span class="meta-value">黃金蜜處理 (Honey Process)</span></li>
+              <li class="meta-row"><span class="meta-label">烘焙度</span><span class="meta-value">淺中焙 (Medium Light)</span></li>
+              <li class="meta-row"><span class="meta-label">土壤類型</span><span class="meta-value">高山原始林腐植土</span></li>
+            </ul>
+            <div class="flavor-tags">
+              <span class="flavor-tag">野薑花香</span>
+              <span class="flavor-tag">高山烏龍茶韻</span>
+              <span class="flavor-tag">桂圓蜜甜</span>
+              <span class="flavor-tag">甜橙酸值</span>
+            </div>
+            <p class="origin-desc">
+              阿里山終年雲霧繚繞，得天獨厚的茶鄉水氣賦予咖啡純淨清幽的茶感。尾韻帶有迷人的高山蜜糖香氣，層次清透高雅。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       第三部分：職人手沖特色指南 (強調沖泡特色)
+       ========================================================================== -->
+  <section class="section-py brewing-section" id="brewing">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">POUR-OVER MASTERY</span>
+        <h2 class="section-title">手沖的美學：每一秒水流皆是藝術</h2>
+        <p class="section-desc mx-auto">
+          手沖咖啡並非玄學，而是精密物理與感官的融合。掌握水溫、水粉比例、研磨粗細與注水節奏，你也能在自家吧台沖出一杯通透晶瑩的精品咖啡。
+        </p>
+      </div>
+
+      <!-- 四大步驟卡片 -->
+      <div class="brewing-steps-grid">
+        <div class="brew-step-card">
+          <div class="step-number">01</div>
+          <h4>精準研磨與秤量</h4>
+          <div class="step-metric">研磨度：二砂糖顆粒大小</div>
+          <p>
+            建議使用錐刀手搖或專業電動磨豆機，顆粒均勻能避免細粉過萃產生的苦澀。建議單人份使用 15g 咖啡粉。
+          </p>
+        </div>
+
+        <div class="brew-step-card">
+          <div class="step-number">02</div>
+          <h4>溫控與悶蒸甦醒</h4>
+          <div class="step-metric">水溫：91°C - 93°C ｜ 30-40秒</div>
+          <p>
+            注入咖啡粉量 2 倍熱水（約 30g-35g），由內向外浸潤全粉層。咖啡粉如花朵般鼓起排氣，釋放產地活性芳香化合物。
+          </p>
+        </div>
+
+        <div class="brew-step-card">
+          <div class="step-number">03</div>
+          <h4>分段均勻中心萃取</h4>
+          <div class="step-metric">萃取比例：1:15 至 1:16</div>
+          <p>
+            以細壺嘴保持平穩柔順水柱，順時針由中心向外繞圈注入第二段與第三段水量，維持濾杯水位穩定，避免攪動粉牆邊緣。
+          </p>
+        </div>
+
+        <div class="brew-step-card">
+          <div class="step-number">04</div>
+          <h4>果酸釋放與適溫品飲</h4>
+          <div class="step-metric">總時間：2分15秒 ｜ 55°C-65°C</div>
+          <p>
+            當水流即將滴盡時移開濾杯。輕輕旋轉下壺使香氣均勻混和，待溫度稍降至 60°C 左右啜飲，體驗最豐富的層次轉變。
+          </p>
+        </div>
+      </div>
+
+      <!-- 互動式手沖參數計算機 -->
+      <div class="calculator-box">
+        <div class="calc-header">
+          <div class="calc-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="calc-title">
+            <h3>綠天職人手沖參數計算器</h3>
+            <p>選擇您偏好的粉量與豆品烘焙度，立即換算專業注水與萃取參數</p>
+          </div>
+        </div>
+
+        <div class="calc-controls">
+          <div class="calc-inputs">
+            <div class="input-group">
+              <label for="coffeeGrams">使用咖啡粉量 (Grams)</label>
+              <div class="input-range-wrap">
+                <input type="range" id="coffeeGrams" min="10" max="30" value="15" step="1">
+                <span class="range-val" id="gramsDisplay">15g</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="roastLevel">選擇豆品烘焙度</label>
+              <select id="roastLevel" class="select-roast">
+                <option value="light">淺焙（高揚花香、明亮果酸，如衣索比亞）</option>
+                <option value="medium-light" selected>淺中焙（平衡花果甜感，如哥倫比亞、阿里山）</option>
+                <option value="medium">中焙（焦糖巧克力甘醇，如瓜地馬拉）</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-results">
+            <div class="result-block">
+              <span class="result-label">建議總注水量</span>
+              <div class="result-data"><span id="waterTotal">225</span><span class="result-unit">ml</span></div>
+            </div>
+            <div class="result-block">
+              <span class="result-label">第一段悶蒸水量</span>
+              <div class="result-data"><span id="bloomWater">35</span><span class="result-unit">ml</span></div>
+            </div>
+            <div class="result-block">
+              <span class="result-label">建議萃取水溫</span>
+              <div class="result-data"><span id="brewTemp">92</span><span class="result-unit">°C</span></div>
+            </div>
+            <div class="result-block">
+              <span class="result-label">建議總萃取時間</span>
+              <div class="result-data"><span id="brewTime">2:15</span><span class="result-unit">min</span></div>
+            </div>
+            <div class="result-tip" id="brewAdvice">
+              <span>💡 提示：建議使用 V60 或 Origami 摺紙濾杯，三段均勻注水，保留最乾淨清亮的果香！</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       第四部分：精選產品展示 (產品展示)
+       ========================================================================== -->
+  <section class="section-py products-section" id="products">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">OUR SELECTIONS</span>
+        <h2 class="section-title">莊園咖啡豆與精品選物</h2>
+        <p class="section-desc mx-auto">
+          由綠天資深烘焙師嚴格監製，接單後安排最新鮮批次烘焙，附產地履歷卡與專屬手沖指南。
+        </p>
+      </div>
+
+      <!-- 分類標籤篩選按鈕 -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-filter="all">全部商品 (6)</button>
+        <button class="tab-btn" data-filter="single-origin">莊園單品豆 (4)</button>
+        <button class="tab-btn" data-filter="drip-bag">濾掛浸泡包 (1)</button>
+        <button class="tab-btn" data-filter="equipment">手沖職人器物 (1)</button>
+      </div>
+
+      <!-- 商品網格 -->
+      <div class="products-grid" id="productGrid">
+        <!-- 產品 1 -->
+        <div class="product-card" data-category="single-origin">
+          <div class="product-thumb">
+            <span class="product-roast-pill">淺焙 Light</span>
+            <span class="product-score">SCA 90+</span>
+            <!-- 咖啡包意象圖標 -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z"></path>
+              <line x1="4" y1="9" x2="20" y2="9"></line>
+              <circle cx="12" cy="15" r="2"></circle>
+            </svg>
+          </div>
+          <div class="product-info">
+            <div class="product-origin-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+              衣索比亞 耶加雪菲 沃卡
+            </div>
+            <h3 class="product-title">沃卡 日曬 G1</h3>
+            <p class="product-notes">茉莉花香、水蜜桃、檸檬紅茶餘韻，清透如春風拂面。</p>
+            <div class="product-footer">
+              <div class="product-price">NT$ 480<small>/ 200g</small></div>
+              <button class="btn-buy" onclick="addToCart('衣索比亞 耶加雪菲 沃卡 日曬 G1')" title="加入品嚐清單">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 產品 2 -->
+        <div class="product-card" data-category="single-origin">
+          <div class="product-thumb">
+            <span class="product-roast-pill">淺焙 Light</span>
+            <span class="product-score">SCA 91.5</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z"></path>
+              <line x1="4" y1="9" x2="20" y2="9"></line>
+              <circle cx="12" cy="15" r="2"></circle>
+            </svg>
+          </div>
+          <div class="product-info">
+            <div class="product-origin-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+              哥倫比亞 薇拉 天堂莊園
+            </div>
+            <h3 class="product-title">玫瑰荔枝 藝妓 Geisha</h3>
+            <p class="product-notes">雙重厭氧熱衝擊水洗，飽滿爆汁的熱帶水果與粉嫩玫瑰花香。</p>
+            <div class="product-footer">
+              <div class="product-price">NT$ 680<small>/ 150g</small></div>
+              <button class="btn-buy" onclick="addToCart('哥倫比亞 玫瑰荔枝 藝妓 Geisha')" title="加入品嚐清單">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 產品 3 -->
+        <div class="product-card" data-category="single-origin">
+          <div class="product-thumb">
+            <span class="product-roast-pill">淺中焙 Med-Light</span>
+            <span class="product-score">SCA 89+</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z"></path>
+              <line x1="4" y1="9" x2="20" y2="9"></line>
+              <circle cx="12" cy="15" r="2"></circle>
+            </svg>
+          </div>
+          <div class="product-info">
+            <div class="product-origin-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+              台灣 阿里山特富野
+            </div>
+            <h3 class="product-title">特富野 高山蜜處理</h3>
+            <p class="product-notes">高山烏龍冷香、野薑花、蜜柑與細膩龍眼蜜甜，台灣極致風土。</p>
+            <div class="product-footer">
+              <div class="product-price">NT$ 720<small>/ 150g</small></div>
+              <button class="btn-buy" onclick="addToCart('台灣 阿里山特富野 高山蜜處理')" title="加入品嚐清單">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 產品 4 -->
+        <div class="product-card" data-category="single-origin">
+          <div class="product-thumb">
+            <span class="product-roast-pill">淺中焙 Med-Light</span>
+            <span class="product-score">SCA 88</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M6 3h12l2 6v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9l2-6z"></path>
+              <line x1="4" y1="9" x2="20" y2="9"></line>
+              <circle cx="12" cy="15" r="2"></circle>
+            </svg>
+          </div>
+          <div class="product-info">
+            <div class="product-origin-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+              瓜地馬拉 安堤瓜
+            </div>
+            <h3 class="product-title">聖卡塔莉娜 火山水洗</h3>
+            <p class="product-notes">成熟紅櫻桃酸值、烤杏仁堅果香氣、72% 深黑巧克力尾韻。</p>
+            <div class="product-footer">
+              <div class="product-price">NT$ 450<small>/ 200g</small></div>
+              <button class="btn-buy" onclick="addToCart('瓜地馬拉 聖卡塔莉娜 火山水洗')" title="加入品嚐清單">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 產品 5 -->
+        <div class="product-card" data-category="drip-bag">
+          <div class="product-thumb">
+            <span class="product-roast-pill">綜合微批次</span>
+            <span class="product-score">10包入</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+              <path d="M7 8h10M7 12h10M7 16h6"></path>
+            </svg>
+          </div>
+          <div class="product-info">
+            <div class="product-origin-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+              產地綜合濾掛禮盒
+            </div>
+            <h3 class="product-title">綠天漫步 莊園濾掛禮盒</h3>
+            <p class="product-notes">集結四款世界頂尖風土產地，充氮新鮮防氧化包裝，隨時手沖。</p>
+            <div class="product-footer">
+              <div class="product-price">NT$ 520<small>/ 盒 (10包)</small></div>
+              <button class="btn-buy" onclick="addToCart('綠天漫步 莊園濾掛禮盒')" title="加入品嚐清單">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 產品 6 -->
+        <div class="product-card" data-category="equipment">
+          <div class="product-thumb">
+            <span class="product-roast-pill">職人器物</span>
+            <span class="product-score">Japan Made</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+              <circle cx="12" cy="12" r="9"></circle>
+            </svg>
+          </div>
+          <div class="product-info">
+            <div class="product-origin-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              陶瓷摺紙濾杯與原木座
+            </div>
+            <h3 class="product-title">Origami 森林綠限定濾杯組</h3>
+            <p class="product-notes">日本美濃燒陶藝，20道縱向導流槽設計，萃取流速極致順暢。</p>
+            <div class="product-footer">
+              <div class="product-price">NT$ 1,280<small>/ 組</small></div>
+              <button class="btn-buy" onclick="addToCart('Origami 森林綠限定濾杯組')" title="加入品嚐清單">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       第五部分：實體門市資訊 (門市資訊)
+       ========================================================================== -->
+  <section class="section-py stores-section" id="stores">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">OUR SPACES</span>
+        <h2 class="section-title">走進綠意環繞的靜謐慢所</h2>
+        <p class="section-desc mx-auto">
+          我們將自然引進城市的角落。在綠天實體門市，我們不設排隊立牌，唯有吧台前水流滴落的聲音與撲鼻而來的花果香氣。
+        </p>
+      </div>
+
+      <div class="stores-grid">
+        <!-- 門市 1: 台北青田概念本店 -->
+        <div class="store-card">
+          <div class="store-image-box">
+            <span class="store-badge">旗艦概念店</span>
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=80" alt="綠天咖啡 台北青田本店">
+          </div>
+          <div class="store-details">
+            <div>
+              <span class="store-tagline">TAIPEI FOREST FLAGSHIP</span>
+              <h3 class="store-name">台北 · 青田森林概念本店</h3>
+            </div>
+            
+            <ul class="store-info-list">
+              <li class="store-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>台北市大安區青田街 28 巷 16 號 (近東門站 5 號出口)</span>
+              </li>
+              <li class="store-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>週一至週日 08:30 - 18:30 (每日手工限量烘焙供應)</span>
+              </li>
+              <li class="store-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>(02) 2368-9811</span>
+              </li>
+            </ul>
+
+            <div class="store-features">
+              <span class="store-feature-tag">開放式手沖品鑑吧台</span>
+              <span class="store-feature-tag">天井陽光植栽席</span>
+              <span class="store-feature-tag">豆品聞香自選</span>
+              <span class="store-feature-tag">提供免費高溫燕麥奶</span>
+            </div>
+
+            <div class="store-actions">
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline" style="flex: 1;">查看地圖路線</a>
+              <button onclick="openBooking('台北 · 青田森林概念本店')" class="btn btn-primary" style="flex: 1;">預約品鑑席</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 門市 2: 台中草悟道人文館 -->
+        <div class="store-card">
+          <div class="store-image-box">
+            <span class="store-badge">手沖工坊館</span>
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=80" alt="綠天咖啡 台中草悟道店">
+          </div>
+          <div class="store-details">
+            <div>
+              <span class="store-tagline">TAICHUNG ATELIER</span>
+              <h3 class="store-name">台中 · 草悟道慢步人文館</h3>
+            </div>
+            
+            <ul class="store-info-list">
+              <li class="store-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>台中市西區民生路 368 巷 12 號 (審計新村周邊)</span>
+              </li>
+              <li class="store-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>週二至週日 09:30 - 19:00 (週一為烘豆公休日)</span>
+              </li>
+              <li class="store-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>(04) 2301-7789</span>
+              </li>
+            </ul>
+
+            <div class="store-features">
+              <span class="store-feature-tag">客製手沖參數工坊</span>
+              <span class="store-feature-tag">老宅檜木香氛氛圍</span>
+              <span class="store-feature-tag">寵物友善空間</span>
+              <span class="store-feature-tag">生豆選豆客製烘焙</span>
+            </div>
+
+            <div class="store-actions">
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline" style="flex: 1;">查看地圖路線</a>
+              <button onclick="openBooking('台中 · 草悟道慢步人文館')" class="btn btn-primary" style="flex: 1;">預約品鑑席</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 預約與體驗推廣區 -->
+      <div class="reservation-banner">
+        <div class="res-text">
+          <h4>想要體驗一對一職人手沖試飲嗎？</h4>
+          <p>每週末綠天門市舉辦「微批次產地盲測杯測會」，由烘焙師帶領品評 4 款世界微批次。</p>
+        </div>
+        <button onclick="openBooking('週末杯測會體驗席')" class="btn btn-accent">線上預約專屬席位</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       頁尾 Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- 品牌簡介 -->
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12A10 10 0 0 1 12 2z"></path>
+                <path d="M12 6c-3 3-3 7 0 10"></path>
+                <path d="M12 11c2-1 4-1 5 1"></path>
+              </svg>
+            </div>
+            <div class="brand-logo-text">
+              <span class="brand-name-zh">綠天咖啡</span>
+              <span class="brand-name-en">Green Sky Coffee</span>
+            </div>
+          </div>
+          <p class="footer-about">
+            純粹、清新、有溫度的精品手沖咖啡品牌。秉持對土地與職人精神的熱愛，讓自然的芳醇為生活留下一抹澄澈的綠意。
+          </p>
+        </div>
+
+        <!-- 快速連結 -->
+        <div class="footer-col">
+          <h5>探索內容</h5>
+          <ul class="footer-links">
+            <li><a href="#about">品牌初衷與哲學</a></li>
+            <li><a href="#origin">產地與風土莊園</a></li>
+            <li><a href="#brewing">手沖溫度與水粉比例</a></li>
+            <li><a href="#products">精品咖啡豆選品</a></li>
+            <li><a href="#stores">實體門市空間據點</a></li>
+          </ul>
+        </div>
+
+        <!-- 客服與協助 -->
+        <div class="footer-col">
+          <h5>品鑑服務</h5>
+          <ul class="footer-links">
+            <li><a href="#brewing">手沖風味諮詢</a></li>
+            <li><a href="#stores">企業咖啡豆專案採購</a></li>
+            <li><a href="#stores">咖啡師客製沖煮課</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('配送說明：全台滿 NT$ 1,000 即享黑貓冷鏈免運！')">訂購與配送方式</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('常見問題：若收到咖啡豆有瑕疵包裝，3日內保證全數更換。')">常見問答 FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- 電子報與消息 -->
+        <div class="footer-col">
+          <h5>產地旬味電子報</h5>
+          <p style="font-size: 0.85rem; color: rgba(249, 247, 242, 0.7); line-height: 1.6;">
+            每月訂閱微批次新豆到港情報與手沖私房參數，首次訂閱現折 NT$ 100。
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('感謝您的訂閱！首購折價券代碼已寄至您的信箱。');">
+            <div class="newsletter-input-wrap">
+              <input type="email" placeholder="輸入您的 Email" required>
+              <button type="submit">訂閱</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 綠天咖啡 Green Sky Coffee. 本網頁依據網站規格製作，呈現自然清新質感美學。</p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="social-link" title="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <a href="#" class="social-link" title="Line">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       預約 / 諮詢彈跳視窗 Modal
+       ========================================================================== -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-window">
+      <button class="modal-close" onclick="closeBooking()">&times;</button>
+      <div style="margin-bottom: 24px;">
+        <span class="section-badge" style="margin-bottom: 8px;">RESERVATION</span>
+        <h3 id="modalStoreTitle" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-green-dark);">預約手沖品鑑席</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 6px;">請填寫您的稱呼與預計品鑑時間，我們將有手沖咖啡師為您保留專屬吧台席位。</p>
+      </div>
+
+      <form onsubmit="handleBookingSubmit(event)" style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <label style="display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px;">您的姓名 / 稱呼</label>
+          <input type="text" required placeholder="例如：林先生 / 陳小姐" style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-beige-border); outline: none;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px;">聯絡電話</label>
+          <input type="tel" required placeholder="例如：0912-345-678" style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-beige-border); outline: none;">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px;">品鑑日期</label>
+            <input type="date" required style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-beige-border); outline: none;">
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px;">人數</label>
+            <select style="width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--color-beige-border); outline: none;">
+              <option value="1">1 位</option>
+              <option value="2" selected>2 位</option>
+              <option value="3">3 位</option>
+              <option value="4">4 位及以上</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 12px;">確認預約席位</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast 提示訊息 -->
+  <div class="toast-msg" id="toastMsg">已加入品嚐清單</div>
+
+  <!-- ==========================================================================
+       互動邏輯 JavaScript
+       ========================================================================== -->
+  <script>
+    // 1. 手機版漢堡選單切換
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // 點擊選單項目後自動關閉選單
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // 2. 手沖參數即時計算器
+    const coffeeInput = document.getElementById('coffeeGrams');
+    const gramsDisplay = document.getElementById('gramsDisplay');
+    const roastSelect = document.getElementById('roastLevel');
+    const waterTotalEl = document.getElementById('waterTotal');
+    const bloomWaterEl = document.getElementById('bloomWater');
+    const brewTempEl = document.getElementById('brewTemp');
+    const brewTimeEl = document.getElementById('brewTime');
+    const brewAdviceEl = document.getElementById('brewAdvice');
+
+    function calculateBrewParams() {
+      const grams = parseInt(coffeeInput.value, 10);
+      const roast = roastSelect.value;
+
+      gramsDisplay.textContent = grams + 'g';
+
+      let ratio = 15;
+      let temp = 92;
+      let time = "2:15";
+      let advice = "";
+
+      if (roast === 'light') {
+        ratio = 16;
+        temp = 93;
+        time = "2:20";
+        advice = "💡 淺焙建議使用 93°C 高溫水，激發明亮水蜜桃與茉莉花果酸甜，細水流萃取更透澈！";
+      } else if (roast === 'medium-light') {
+        ratio = 15;
+        temp = 91;
+        time = "2:15";
+        advice = "💡 淺中焙建議 91°C，三段均勻注水，兼顧果汁甜感與圓潤醇厚度，尾韻甘甜延綿。";
+      } else if (roast === 'medium') {
+        ratio = 14;
+        temp = 89;
+        time = "2:00";
+        advice = "💡 中焙建議使用 89°C 溫潤水溫，避開過萃焦苦，突出焦糖黑巧克力與榛果香醇。";
+      }
+
+      const totalWater = Math.round(grams * ratio);
+      const bloomWater = Math.round(grams * 2.2);
+
+      waterTotalEl.textContent = totalWater;
+      bloomWaterEl.textContent = bloomWater;
+      brewTempEl.textContent = temp;
+      brewTimeEl.textContent = time;
+      brewAdviceEl.innerHTML = `<span>${advice}</span>`;
+    }
+
+    coffeeInput.addEventListener('input', calculateBrewParams);
+    roastSelect.addEventListener('change', calculateBrewParams);
+    calculateBrewParams(); // 初始計算
+
+    // 3. 商品類別篩選
+    const filterButtons = document.querySelectorAll('.tab-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        productCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 4. 加入品嚐清單 Toast 提示
+    const toast = document.getElementById('toastMsg');
+    let toastTimeout;
+
+    function showToast(text) {
+      clearTimeout(toastTimeout);
+      toast.textContent = text;
+      toast.classList.add('show');
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function addToCart(productName) {
+      showToast(`已將「${productName}」加入選購清單！`);
+    }
+
+    // 5. 門市預約 Modal 控制
+    const modal = document.getElementById('bookingModal');
+    const modalStoreTitle = document.getElementById('modalStoreTitle');
+
+    function openBooking(storeTitle) {
+      modalStoreTitle.textContent = '預約品鑑席 ｜ ' + storeTitle;
+      modal.classList.add('active');
+    }
+
+    function closeBooking() {
+      modal.classList.remove('active');
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeBooking();
+      }
+    });
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      closeBooking();
+      showToast('預約已成功提交！門市咖啡師將在 2 小時內與您電話確認。');
+    }
+  </script>
+</body>
+</html>
+
